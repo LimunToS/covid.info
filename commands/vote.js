@@ -15,7 +15,7 @@ module.exports = {
             }
         });
         for(const elem of nizTakmicara){
-            fs.appendFile('takmicari.txt',JSON.stringify(elem),(err)=>{
+            fs.appendFile('takmicari.txt',JSON.stringify(elem)+'\n',(err)=>{
                 if (err) {
                     throw err;
                 }

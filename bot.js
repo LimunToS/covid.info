@@ -8,6 +8,8 @@ const fs = require('fs');
 
 const lineReader = require('line-reader');
 
+var moment = require('moment');
+moment().format();
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -25,6 +27,7 @@ lineReader.eachLine('takmicari.txt', line => {
 
 client.once('ready', () =>{
     console.log('Im online');
+    console.log(moment().hour()+":"+moment().minute());
 });
 
 client.on('message', message => {
@@ -49,16 +52,16 @@ client.on('message', message => {
         client.commands.get('vote').execute(message,args,nizTakmicara);
     }
     if(comand === 'ranklist'){
-        client.commands.get('ranklist').execute(message,nizTakmicara);
+        client.commands.get('ranklist').execute(message,args,nizTakmicara);
     }
     if(comand === 'update'){
         client.commands.get('update').execute(message,args,nizTakmicara);
-        client.commands.get('ranklist').execute(message,nizTakmicara);
+        client.commands.get('ranklist').execute(message,args,nizTakmicara);
     }
     if(comand === 'help'){
-        client.commands.get('help').execute();
+        client.commands.get('help').execute(message);
     }
 });
 
 
-client.login(process.env.BOT_TOKEN);
+client.login('NzcyMDUzMzU5MjcyMjYzNjkw.X51EuA.WwfrkL75sBkD0J346md07AN0oMg');

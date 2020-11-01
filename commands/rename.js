@@ -14,12 +14,12 @@ module.exports = {
             }
         }
         if(!nadjen){
-            message.channel.send('GK moras se prvo ulogobati, probaj sa -login zeljenoIme');
+            message.channel.send('GK moras se prvo ulogovati, probaj sa -login zeljenoIme');
             return;
         }
         for(const elem of nizTakmicara){
             if(elem.ime == args[0]){
-                message.channel.send('Tvoje ime već je zauzeto, možeš da ga puši ga pseto');
+                message.channel.send('Tvoje ime već je zauzeto, možeš da ga pušiš pseto');
                 message.channel.send('#smorucetu');
                 return;
             }
@@ -28,7 +28,7 @@ module.exports = {
         for(let elem of nizTakmicara){
             if(elem.id == message.author.id){
                 elem.ime = args[0];
-                message.channel.send('Ime uspesno promenjeno :)');
+                message.channel.send('Ime uspešno promenjeno :)');
                 break;    
             }
         }
@@ -39,7 +39,7 @@ module.exports = {
             }
         });
         for(const elem of nizTakmicara){
-            fs.appendFile('takmicari.txt',JSON.stringify(elem),(err)=>{
+            fs.appendFile('takmicari.txt',JSON.stringify(elem)+'\n',(err)=>{
                 if (err) {
                     throw err;
                 }

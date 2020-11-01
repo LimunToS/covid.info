@@ -9,7 +9,7 @@ module.exports = {
         
         for(const elem of nizTakmicara){
             if(elem.id == message.author.id){
-                message.channel.send('Govno jedno vec si registrovan!');
+                message.channel.send('Govno jedno već si registrovan!');
                 return;
             }
         }
@@ -22,7 +22,7 @@ module.exports = {
             }
         }
 
-        const takmicar = `{"id": "${message.author.id}", "ime": "${args[0]}", "poeni": 0, "vote": 0}\n`;
+        const takmicar = `{"id": "${message.author.id}", "ime": "${args[0]}", "poeni": 0, "vote": 0,"dw":0}\n`;
         const obj = JSON.parse(takmicar);
         nizTakmicara.push(obj);
         message.channel.send('Uspesno ste se ulogovali :)');
